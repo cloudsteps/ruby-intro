@@ -43,7 +43,6 @@ h.keys.sort.each do |key|
   unique_days += 1 if key.chars.first.eql?("2")
 end
 
-h.values.
 
 
 puts "total lines: #{lines}"                  # output stats
