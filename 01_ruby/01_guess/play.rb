@@ -31,6 +31,14 @@ status =
 
       low = i + 1 if response.match(/:too low/)     # look in upper half of the range if the guess was too low
       high = i - 1 if response.match(/:too high/)   # or in lower half of the range if the guess was too high
+      
+      # if the reason for exiting the loop is that the number wasn't found, make a note that
+      # the server must have lied
+      if high < low
+        puts "Server lied at some point."
+        break                                       
+      end
+      
     end
     puts ">>> exitstatus : #{ wait_thr.value }"
   end
