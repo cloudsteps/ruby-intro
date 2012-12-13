@@ -53,11 +53,11 @@ def play_game(limit)
 
   until found
     guess = ask(limit)
-  
+    j = Random.rand(11)
     if guess < chosen
-      say "WRONG:too low"
+      j <= 9 ? say "WRONG:too low" : say "WRONG:too high"
     elsif guess > chosen
-      say "WRONG:too high"
+      j <= 9 ? say "WRONG:too high" : say "WRONG:too low"
     else
       found = true
     end
