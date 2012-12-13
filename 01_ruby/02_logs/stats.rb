@@ -6,21 +6,45 @@ unless filename                         # we can't work without a filename
   exit
 end
 
+arrayOfVals = Array.new
 lines = 0                               # a humble line counter
-unique_users = "unknown"                # someday, this will work
-unique_pages = "unknown"                # someday, this will work
+unique_users = 0                # someday, this will work
+unique_pages = 0                # someday, this will work
 most_active_day = "unknown"             # someday, this will work
 most_active_user = "unknown"            # someday, this will work
 most_active_page = "unknown"            # someday, this will work
+unique_days = 0
 
-open(filename).each do |m|              # loop over every line of the file
+open(filename).each_with_index  do |m, i|
+  next if i == 0  		# ignore the top line
   m.chomp!                              # remove the trailing newline
-  values = m.split(",")                 # split comma-separated fields into a values array
 
+  values = m.split(",")           # split comma-separated fields into a values array
+
+  values.each { |x| arrayOfVals.push x }
   # ...
 
   lines += 1                            # bump the counter
 end
+
+h = Hash.new(0)
+
+arrayOfVals.each { | v | h.store(v, h[v]+1) }
+
+puts h
+=begin
+h.keys.sort.each do |key|
+  puts key
+end
+=end
+h.keys.sort.each do |key|
+  unique_users += 1 if key.chars.first.eql?("U")
+  unique_pages += 1 if key.chars.first.eql?("/")
+  unique_days += 1 if key.chars.first.eql?("2")
+end
+
+h.values.
+
 
 puts "total lines: #{lines}"                  # output stats
 puts "unique users: #{unique_users}"          # someday, this will work
