@@ -12,9 +12,11 @@
 
 * Step 1 : (quick) TryRuby interactive class: http://tryruby.org
 * Step 2 : (quick) Chris Pine Learn to Program: http://pine.fm/LearnToProgram/
-* Step 3 : (quick) Ruby Koans: http://rubykoans.com (online at http://koans.heroku.com/)
-* Step 4 : (medium) start reading Poignant guide to ruby: http://mislav.uniqpath.com/poignant-guide/book/
-* Step 5 : (long) start reading Programming Ruby (ebook): http://pragprog.com/book/ruby3/programming-ruby-1-9
+* Step 3 : (quick) Codecademy Ruby Intro http://www.codecademy.com/tracks/ruby
+* Step 4 : (quick) Codecademy labs Ruby interpreter http://labs.codecademy.com/#:workspace
+* Step 5 : (quick) Ruby Koans: http://rubykoans.com (online at http://koans.heroku.com/)
+* Step 6 : (medium) start reading Poignant guide to ruby: http://mislav.uniqpath.com/poignant-guide/book/
+* Step 7 : (long) start reading Programming Ruby (ebook): http://pragprog.com/book/ruby3/programming-ruby-1-9
 
 Additional resources:
 

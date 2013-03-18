@@ -1,3 +1,7 @@
+# NOTE: stop any running servers before starting this one
+# NOTE: make sure to use multiple command windows for command line access
+# NOTE: clarify the random id in URL substitution
+
 
 # RESTFul Web Services using Sinatra
 
