@@ -1,7 +1,7 @@
 
 # Building Proficiency in Ruby
 
-# RVM : http://beginrescueend.com/
+# RVM : http://rvm.io/
 * Install via the command line: ruby 1.9.3
 
 # Textmate: http://macromates.com/
