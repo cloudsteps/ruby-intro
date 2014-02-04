@@ -9,9 +9,12 @@ status =
     puts ">>> pid        : #{ wait_thr.pid }"       # report the child pid for informational purposes
   
     finished = false                                # we're just getting started!
-    i = 1                                           # let's start with a simple guess
-
-    until finished || (i > limit)                   # keep looping until we're done
+    
+    low = 0                                         # variables to be used...
+    high = limit                                    # ...for (nonrecursive) binary search
+    
+    until finished || ( high < low )                # keep looping until we're done
+      i = (low+high)/2                              # let's start with a guess in the middle of the range
       inline = child_stdout.readline.strip          # get input from the game process
 
       unless inline.match(/GUESS/)                  # make sure the game is asking what we expect
@@ -26,7 +29,16 @@ status =
       puts "< " + response                          # report the result
       finished = response.match(/:exiting/)         # if the response includes ':exiting', we're done
 
-      i += 1
+      low = i + 1 if response.match(/:too low/)     # look in upper half of the range if the guess was too low
+      high = i - 1 if response.match(/:too high/)   # or in lower half of the range if the guess was too high
+      
+      # if the reason for exiting the loop is that the number wasn't found, make a note that
+      # the server must have lied
+      if high < low
+        puts "Server lied at some point."
+        break                                       
+      end
+      
     end
     puts ">>> exitstatus : #{ wait_thr.value }"
   end
